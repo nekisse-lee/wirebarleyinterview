@@ -19,6 +19,6 @@ public class TestController {
 
   @GetMapping
   public Quotes testResponse() {
-    return exchangeService.getQuotes();
+    return exchangeService.getQuotesTest2();
   }
 }

@@ -15,7 +15,7 @@ public class ExchangeInfoApiClient {
     this.restTemplate = restTemplate;
   }
 
-  public Quotes getQuoData() {
+  public Quotes getApiClientQuotes() {
     Quotes rateDataDto = restTemplate.getForObject("http://apilayer.net/api/live?access_key=07b88071071212c8e286cf29cd653547&currencies=KRW,JPY,PHP&source=USD&format=1", Quotes.class);
 //      System.out.println(rateDataDto.toString());
 

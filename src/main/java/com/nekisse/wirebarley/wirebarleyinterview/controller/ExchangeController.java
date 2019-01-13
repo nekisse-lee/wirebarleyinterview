@@ -1,26 +1,28 @@
 package com.nekisse.wirebarley.wirebarleyinterview.controller;
 
+import com.nekisse.wirebarley.wirebarleyinterview.controller.dto.QuotesResponse;
 import com.nekisse.wirebarley.wirebarleyinterview.service.ExchangeService;
-import com.nekisse.wirebarley.wirebarleyinterview.service.dto.Quotes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Map;
-
 @RestController
 @RequestMapping("/exchange")
 public class ExchangeController {
 
+  private final ExchangeService service;
 
   @Autowired
-  private ExchangeService service;
+  public ExchangeController(ExchangeService service) {
+    this.service = service;
+  }
 
-  /*@GetMapping("/info")
-  public QuotesResponse quotesResponse() {
+  @GetMapping("/infoList")
+  public QuotesResponse quotes() {
     return service.getQuotes();
-  }*/
+  }
+
 
 
 

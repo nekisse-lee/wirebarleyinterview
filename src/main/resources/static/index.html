@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+<h1>환율계산</h1>
+
+<form>
+  <div class="form-group">
+    <p>송금국가 : 미국(UDS)</p>
+  </div>
+
+  <div class="form-group">
+    <p>수취국가 :
+      <label for="nation">
+
+      </label><select id="nation">
+
+      </select>
+    </p>
+  </div>
+
+
+  <div class="form-group" id="exchange-ratesOfExchange">
+
+  </div>
+
+  <div class="form-group">
+
+    <label for="transferAmount">송금액 :</label>
+    <input type="text"  id="transferAmount" placeholder="송금액을 입력하세요">
+    <span>USD</span>
+
+  </div>
+  <button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
+</form>
+
+
+
+<script id="exchange-select-template" type="text/x-handlebars-template">
+  {{#each quotesInfoList}}
+  <option value="{{nation}}">{{nation}}({{nationCode}})</option>
+  {{/each}}
+</script>
+
+<script id="exchange-ratesOfExchange-template" type="text/x-handlebars-template">
+  <p>환율 : {{ratesOfExchange}} {{nationCode}}/USD</p>
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+
+<script>
+
+
+  $(document).ready(function() {
+
+
+    var init = function() {
+      $.ajax({
+        url: '/exchange/infoList',
+        method: 'GET',
+        contentType: 'application/json; charset=utf-8',
+        success: function(response) {
+
+          renderSelectBoxOption(response);
+
+        },
+        error: function(response) {
+          alert(response.message);
+        }
+      });
+    };
+
+    var renderSelectBoxOption = function(data) {
+      var source = $('#exchange-select-template').html();
+      var template = Handlebars.compile(source);
+      var html = template(data);
+      $('#nation').html(html);
+    };
+
+
+
+
+
+
+
+    init();
+  });
+
+</script>
+</body>
+</html>
