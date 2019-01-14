@@ -15,9 +15,7 @@
 
   <div class="form-group">
     <p>수취국가 :
-      <label for="nation">
-
-      </label><select id="nation">
+      <select id="nation">
 
       </select>
     </p>
@@ -31,14 +29,27 @@
   <div class="form-group">
 
     <label for="transferAmount">송금액 :</label>
-    <input type="text"  id="transferAmount" placeholder="송금액을 입력하세요">
+    <input type="text" id="transferAmount" placeholder="송금액을 입력하세요">
     <span>USD</span>
 
   </div>
+
   <button type="button" class="btn btn-primary" id="btnSubmit">Submit</button>
+
 </form>
 
+<div class="col-md-6">
+  <table class="table table-horizontal table-bordered">
+    <tbody id="tbody">
 
+    </tbody>
+  </table>
+</div>
+
+
+<script id="exchange-result-template" type="text/x-handlebars-template">
+  <h1>수취금액은 {{result}} {{nation}} 입니다.</h1>
+</script>
 
 <script id="exchange-select-template" type="text/x-handlebars-template">
   {{#each quotesInfoList}}
@@ -47,50 +58,13 @@
 </script>
 
 <script id="exchange-ratesOfExchange-template" type="text/x-handlebars-template">
-  <p>환율 : {{ratesOfExchange}} {{nationCode}}/USD</p>
+  <p>환율 : {{ratesOfExchange}} {{nation}}/USD</p>
 </script>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+<script src="/js/app.js"></script>
 
-<script>
-
-
-  $(document).ready(function() {
-
-
-    var init = function() {
-      $.ajax({
-        url: '/exchange/infoList',
-        method: 'GET',
-        contentType: 'application/json; charset=utf-8',
-        success: function(response) {
-
-          renderSelectBoxOption(response);
-
-        },
-        error: function(response) {
-          alert(response.message);
-        }
-      });
-    };
-
-    var renderSelectBoxOption = function(data) {
-      var source = $('#exchange-select-template').html();
-      var template = Handlebars.compile(source);
-      var html = template(data);
-      $('#nation').html(html);
-    };
-
-
-
-
-
-
-
-    init();
-  });
-
-</script>
 </body>
 </html>

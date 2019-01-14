@@ -7,10 +7,13 @@ public class Quotes {
 
   private Map<String, Double> quotes = new HashMap<>();
 
+  public Double get(String nation) {
+    return quotes.get(nation);
+  }
+
   public Map<String, Double> getQuotes() {
     return quotes;
   }
-
 
 
   @Override

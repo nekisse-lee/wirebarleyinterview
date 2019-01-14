@@ -3,9 +3,9 @@ package com.nekisse.wirebarley.wirebarleyinterview.controller.dto;
 public class QuotesInfo {
   private String nation;
   private String nationCode;
-  private double ratesOfExchange;
+  private String  ratesOfExchange;
 
-  public QuotesInfo(String nation, String nationCode, double ratesOfExchange) {
+  public QuotesInfo(String nation, String nationCode, String  ratesOfExchange) {
     this.nation = nation;
     this.nationCode = nationCode;
     this.ratesOfExchange = ratesOfExchange;
@@ -19,7 +19,7 @@ public class QuotesInfo {
     return nationCode;
   }
 
-  public double getRatesOfExchange() {
+  public String  getRatesOfExchange() {
     return ratesOfExchange;
   }
 
