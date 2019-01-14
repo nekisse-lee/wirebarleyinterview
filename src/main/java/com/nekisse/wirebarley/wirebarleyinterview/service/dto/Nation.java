@@ -7,7 +7,7 @@ public enum Nation {
   KRW("한국"),
   PHP("필리핀"),
   JPY("일본"),
-  ARS("아르헨티나");
+  /*ARS("아르헨티나")*/;
 
   private String name;
 

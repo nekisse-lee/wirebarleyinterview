@@ -1,4 +1,4 @@
-package com.nekisse.wirebarley.wirebarleyinterview.service;
+package com.nekisse.wirebarley.wirebarleyinterview.service.utils;
 
 import java.math.BigDecimal;
 

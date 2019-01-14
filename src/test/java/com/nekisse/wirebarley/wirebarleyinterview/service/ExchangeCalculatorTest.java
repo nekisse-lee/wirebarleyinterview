@@ -1,5 +1,6 @@
 package com.nekisse.wirebarley.wirebarleyinterview.service;
 
+import com.nekisse.wirebarley.wirebarleyinterview.service.utils.ExchangeCalculator;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
