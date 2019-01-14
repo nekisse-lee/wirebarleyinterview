@@ -7,7 +7,7 @@ public class ExchangeCalculator {
 
   public static double exchange(double amount, double ratesOfExchange) {
     BigDecimal decimalAmount = BigDecimal.valueOf(amount);
-    BigDecimal decimalRatesOfExchange = BigDecimal.valueOf(ratesOfExchange).setScale(2, BigDecimal.ROUND_FLOOR);
+    BigDecimal decimalRatesOfExchange = BigDecimal.valueOf(ratesOfExchange).setScale(2, BigDecimal.ROUND_DOWN);
     return decimalAmount.multiply(decimalRatesOfExchange).doubleValue();
   }
 }

@@ -67,8 +67,10 @@ public class ExchangeService {
     logger.info(String.valueOf(ratesOfExchange));
 
     double exchange = ExchangeCalculator.exchange(req.getAmount(), ratesOfExchange);
+    System.out.println("exchange = " + exchange);
     String result = UtilService.convert(exchange);
 
+    logger.info(result + "result", result);
     return new ExchangeResultResponse(req.getCode(), result);
   }
 
