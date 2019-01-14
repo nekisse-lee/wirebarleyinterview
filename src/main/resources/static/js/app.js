@@ -24,7 +24,7 @@ $(document).ready(function() {
         renderRatesOfExchangeBox(quotes[0]);
       },
       error: function(response) {
-        alert(response.message);
+        alert(response.responseJSON.message);
       }
     });
   };
@@ -70,7 +70,7 @@ $(document).ready(function() {
       },
       error: function(response) {
         //console.log('response', response);
-        alert(response.message);
+        alert(response.responseJSON.message);
       }
     });
   });
